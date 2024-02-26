@@ -4,7 +4,7 @@
 
 ///* workds
 //test left motor class (inheritance from motor)
-#include <ArduinoCarSensors.h> 
+#include <MotorControl.h> 
 
 const int enablePin = 10;  
 const int directionPin = 11;  
