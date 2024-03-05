@@ -92,6 +92,8 @@ public:
             //map the angle to 0 to 180 as this is the pulse width that controls the servo
             int servo_val = map(angle, 0, max_angle, 0, 180);
 
+            Serial.print("Moving servo to angle: ");
+            Serial.println(servo_val);
             //set the servo
             my_servo.write(servo_val);
 
