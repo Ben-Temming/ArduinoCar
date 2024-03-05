@@ -18,7 +18,7 @@ public:
 
 // The table below shows the available interrupt pins Mega2560.
 //	    interrupt:	int.0	int.1	int.2	int.3	int.4	int.5
-//   		2		3		21		20		19		18
+//   		           2		3		21		20		19		18
 const int MAX_INTERRUPTS=6;
 enum ArduinoInterruptNames{
     INT_DEV1=0,
