@@ -2,13 +2,13 @@
 /*make github repo for arduino car (track stuff on git*/
 
 
-///* workds
+/* workds
 //test left motor class (inheritance from motor)
 #include <MotorControl.h> 
 
 const int enablePin = 10;  
 const int directionPin = 11;  
-const int feedbackPin = 3;
+const int feedbackPin = 2; //3
 
 //create the motor object 
 
@@ -275,6 +275,60 @@ void loop() {
 
   delay(1000);  // Adjust the delay based on your needs
 }
+
+//*/
+
+///*
+//send estimated state (x, y) coordinate
+//receive action (0, 1, 2, 3) 
+#include <Arduino.h>
+float x_cm_pos = 0.0; 
+float y_cm_pos = 0.0; 
+
+void setup() {
+  Serial.begin(115200);
+  Serial.setTimeout(1);
+}
+
+
+void loop() {
+  // Send postion as: "Position,<x_cm_pos>,<y_cm_pos>"
+  Serial.print("Position,");
+  Serial.print(x_cm_pos);
+  Serial.print(",");
+  Serial.print(y_cm_pos);
+  Serial.println();
+
+  //get action from agent 
+   while (!Serial.available());
+  int action = Serial.readString().toInt();
+
+  // '''
+  //       actions
+  //       0: up
+  //       1: down
+  //       2: right
+  //       3: left 
+  //       '''
+
+  if (action == 0){
+    x_cm_pos = 10; 
+  }else if (action == 1){
+    x_cm_pos = 20; 
+  }else if (action == 2){
+    x_cm_pos = 30;
+  }else{
+    //action is 3
+    x_cm_pos = 10;
+  }
+  // x_cm_pos += action; 
+
+  
+  delay(1000);  // Adjust the delay based on your needs
+  //print some random stuff to test python program 
+  Serial.println("Testing"); 
+}
+
 
 //*/
 
