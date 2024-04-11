@@ -5,21 +5,7 @@ import time
 #base car control 
 class ArduinoCarControl: 
     #arduino car:  [0: go straight, 1: go back, 2: right, 3: left, 10: terminate] relative to current position and rotation
-    #agent : [0: up, 1: down, 2: right, 3: left, 10: terminate]
     
-    #mapping of the agents actions to the cars actions
-    agent_car_action_mapping = {
-        #rot = 0: agent down-> right, agent up -> left, agent left -> back, agent right -> forward
-        0: {1: 2, 0: 3, 3: 1, 2: 0, 10: 10}, 
-        #rot = 90: agent down-> back, agent up -> forward, agent left -> left, agent right -> right
-        90: {1: 1, 0: 0, 3: 3, 2: 2, 10: 10}, 
-        #rot = 180: agent down-> left, agent up -> right, agent left -> forward, agent right -> back
-        180: {1: 3, 0: 2, 3: 0, 2: 1, 10: 10}, 
-        #rot = 270: agent down-> forward, agent up -> back, agent left -> right, agent right -> left
-        270: {1: 0, 0: 1, 3: 2, 2: 3, 10: 10}, 
-    } 
-    
-
     def __init__(self) -> None:
         #open serial connection to communicate with the arduino
         self.arduino = serial.Serial(port='COM3', baudrate=115200, timeout=0.1)
