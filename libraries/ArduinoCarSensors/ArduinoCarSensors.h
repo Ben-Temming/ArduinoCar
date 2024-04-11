@@ -1,7 +1,3 @@
-//
-// Created by bensa on 21/02/2024.
-//
-
 #ifndef LIBRARIES_ARDUINOCARSENSORS_H
 #define LIBRARIES_ARDUINOCARSENSORS_H
 
@@ -96,22 +92,9 @@ public:
             Serial.println(servo_val);
             //set the servo
             my_servo.write(servo_val);
-
-            /*
-            //has to be in the range of 0 to 180 degree
-            if (angle >= 0 && angle <= 400) {
-                my_servo.write(angle);
-            } else {
-                Serial.println("Invalid angle. Has to be in range 0 to 180 degree");
-            }*/
         }
     }
 };
-
-
-
-
-
 
 
 #endif //LIBRARIES_ARDUINOCARSENSORS_H

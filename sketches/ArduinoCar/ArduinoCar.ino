@@ -39,8 +39,5 @@ void setup() {
 void loop() {
   //run the arduino car 
   my_arduinoCar.run(); 
-
-
   delay(10000); 
-
 }
